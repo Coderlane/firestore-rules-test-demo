@@ -26,12 +26,12 @@ describe('Firestore Tests', () => {
   });
 
   test('new valid counter succeeds', async () => {
-    const counter0 = testApp.firestore().collection('counters').doc('0');
-    await firebaseTesting.assertSucceeds(counter0.set({ value: 0 }));
+    const counter = testApp.firestore().collection('counters').doc('0');
+    await firebaseTesting.assertSucceeds(counter.set({ value: 0 }));
   });
 
   test('new invalid counter fails', async () => {
-    const counter0 = testApp.firestore().collection('counters').doc('0');
-    await firebaseTesting.assertFails(counter0.set({ value: 1 }));
+    const counter = testApp.firestore().collection('counters').doc('0');
+    await firebaseTesting.assertFails(counter.set({ value: 1 }));
   });
 });

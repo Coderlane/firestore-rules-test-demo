@@ -5,6 +5,7 @@ service cloud.firestore {
       allow read;
       allow create: if request.resource.data.value == 0;
       allow update: if request.resource.data.value == resource.data.value + 1;
+      allow delete: if request.resource.data.value == 1;
     }
   }
 }

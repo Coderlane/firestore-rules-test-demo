@@ -34,4 +34,10 @@ describe('Firestore Tests', () => {
     const counter = testApp.firestore().collection('counters').doc('0');
     await firebaseTesting.assertFails(counter.set({ value: 1 }));
   });
+
+  test('increment valid counter succeeds', async () => {
+    const counter = testApp.firestore().collection('counters').doc('0');
+    await firebaseTesting.assertSucceeds(counter.set({ value: 0 }));
+    await firebaseTesting.assertSucceeds(counter.set({ value: 1 }));
+  });
 });
